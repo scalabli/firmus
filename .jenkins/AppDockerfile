@@ -1,0 +1,15 @@
+FROM debian:buster-slim as app
+LABEL maintainer "Secretum Inc."
+
+COPY ./firmus /usr/local/bin/firmus
+
+RUN	useradd -m -u 1000 -U -s /bin/sh -d /firmus firmus && \
+	mkdir -p /firmus/.local/share/firmus && \
+	chown -R firmus:firmus /firmus/.local && \
+	ln -s /firmus/.local/share/firmus /data
+
+USER firmus
+EXPOSE 30333 9933 9944
+VOLUME ["/data"]
+
+ENTRYPOINT ["/usr/local/bin/firmus"]
