@@ -31,7 +31,7 @@ cargo build --release
 
 ## Run
 
-Start a local testnet using latest [docker image](https://hub.docker.com/r/atactr/secretum):
+Start a local testnet using latest [docker image](https://hub.docker.com/r/atactr/firmus):
 
 ```bash
 ./scripts/run-network.sh
